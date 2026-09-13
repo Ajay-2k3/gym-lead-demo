@@ -26,6 +26,9 @@ export function TextReveal({
   className,
   as: Tag = 'span',
 }: TextRevealProps) {
+  // Capitalize so React treats it as a component (required for dynamic tags)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Component = Tag as any;
   const { ref, isInView } = useInViewOnce();
 
   // Split text into tokens based on mode
@@ -55,8 +58,8 @@ export function TextReveal({
   };
 
   return (
-    // @ts-expect-error — dynamic tag is valid JSX but TS needs assertion
-    <Tag
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    <Component
       ref={ref}
       className={className}
       aria-label={text}
@@ -89,6 +92,6 @@ export function TextReveal({
           </span>
         ))}
       </m.span>
-    </Tag>
+    </Component>
   );
 }

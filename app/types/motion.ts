@@ -42,7 +42,7 @@ export interface TextRevealProps {
   /** Additional className on the outer wrapper */
   className?: string;
   /** Element tag to render ('h1' | 'h2' | 'h3' | 'p' | 'span') */
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
 }
 
 // ─── Stagger ─────────────────────────────────────────────────────────────────

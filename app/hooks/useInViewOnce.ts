@@ -15,7 +15,7 @@ export function useInViewOnce(margin: string = '-8% 0px'): {
   isInView: boolean;
 } {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin });
+  const isInView = useInView(ref, { once: true, margin: margin as any });
 
   return { ref, isInView };
 }
